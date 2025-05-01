@@ -4,12 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Radios Web</title>
+  <meta name="description" content="Votre radio Web gratuite, accessible partout. Écoutez en ligne ou téléchargez l'application Android ou Windows.">
+
+  <!-- Open Graph (Facebook, LinkedIn, etc.) -->
+  <meta property="og:title" content="Écoute Radio Web en ligne !" />
+  <meta property="og:description" content="Une radio gratuite, accessible partout et à tout moment. Écoutez directement ou téléchargez l'application Android ou Windows." />
+  <meta property="og:url" content="https://mikefri.github.io/RadiosWeb/" />
+  <meta property="og:image" content="https://private-user-images.githubusercontent.com/44413144/439434645-9176bed2-0798-4cc4-b4cc-6d9bfee7b3f2.png" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Écoute Radio Web en ligne !" />
+  <meta name="twitter:description" content="Gratuit, sans inscription, accessible sur navigateur ou via l'app Android/Windows." />
+  <meta name="twitter:image" content="https://private-user-images.githubusercontent.com/44413144/439434645-9176bed2-0798-4cc4-b4cc-6d9bfee7b3f2.png" />
+
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    /* Styles identiques à ceux que tu avais — non modifiés */
     * {
       box-sizing: border-box;
     }
-
     body {
       font-family: 'Montserrat', sans-serif;
       margin: 0;
@@ -24,7 +39,6 @@
       flex-direction: column;
       align-items: center;
     }
-
     .top-bar {
       position: fixed;
       top: 0;
@@ -40,7 +54,6 @@
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       box-shadow: 0 4px 20px rgba(0, 255, 255, 0.4);
     }
-
     h1 {
       font-size: 2.8em;
       margin: 0 0 10px;
@@ -50,13 +63,11 @@
       -webkit-text-fill-color: transparent;
       animation: neonText 3s linear infinite;
     }
-
     @keyframes neonText {
       0% { background-position: 0% center; }
       50% { background-position: 100% center; }
       100% { background-position: 0% center; }
     }
-
     .main {
       margin-top: 180px;
       max-width: 1000px;
@@ -67,30 +78,25 @@
       flex-wrap: wrap;
       justify-content: center;
     }
-
     .text-promo {
       flex: 1 1 400px;
     }
-
     .text-promo p {
       font-size: 1.2em;
       line-height: 1.6em;
     }
-
     .image-promo {
       flex: 1 1 300px;
       display: flex;
       justify-content: center;
       align-items: center;
     }
-
     .image-promo img {
       max-width: 100%;
       height: auto;
       border-radius: 12px;
       box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
     }
-
     .buttons {
       display: flex;
       flex-wrap: wrap;
@@ -98,7 +104,6 @@
       justify-content: center;
       margin: 40px 0 60px;
     }
-
     a.button {
       padding: 15px 25px;
       border-radius: 10px;
@@ -110,67 +115,57 @@
       transition: transform 0.2s, box-shadow 0.2s;
       box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
     }
-
     a.button:hover {
       transform: scale(1.05);
       box-shadow: 0 0 20px rgba(255, 0, 255, 0.7);
     }
-
-    /* Responsive layout */
     @media (max-width: 768px) {
       .main {
         flex-direction: column;
         align-items: center;
       }
-
       .text-promo, .image-promo {
         flex: 1 1 100%;
         text-align: center;
       }
-
       .text-promo p {
         font-size: 1.1em;
       }
     }
     .social-share {
-  text-align: center;
-  margin-bottom: 80px;
-}
-
-.social-share p {
-  font-size: 1.1em;
-  margin-bottom: 15px;
-}
-
-.share-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-}
-
-.share {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  text-decoration: none;
-  font-size: 1.3em;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.share:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 10px white;
-}
-
-.facebook { background-color: #3b5998; }
-.whatsapp { background-color: #25d366; }
-.twitter  { background-color: #1da1f2; }
-.email    { background-color: #d44638; }
+      text-align: center;
+      margin-bottom: 80px;
+    }
+    .social-share p {
+      font-size: 1.1em;
+      margin-bottom: 15px;
+    }
+    .share-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    .share {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1.3em;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .share:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 10px white;
+    }
+    .facebook { background-color: #3b5998; }
+    .whatsapp { background-color: #25d366; }
+    .twitter  { background-color: #1da1f2; }
+    .email    { background-color: #d44638; }
   </style>
 </head>
 <body>
@@ -190,7 +185,7 @@
       </p>
     </div>
     <div class="image-promo">
-      <img src="https://private-user-images.githubusercontent.com/44413144/439434645-9176bed2-0798-4cc4-b4cc-6d9bfee7b3f2.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDYwODA1OTcsIm5iZiI6MTc0NjA4MDI5NywicGF0aCI6Ii80NDQxMzE0NC80Mzk0MzQ2NDUtOTE3NmJlZDItMDc5OC00Y2M0LWI0Y2MtNmQ5YmZlZTdiM2YyLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA1MDElMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNTAxVDA2MTgxN1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWFkMzJjZTUwODM4MTFhOTcyNjM0YjEyYTg5NTZhZjMwYjA2YmEzMDNmNmI4OTFiNDE2YzE0YzY3ZmY2ZmM2ZDcmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.ghky9ijQ-qdGKYp7vqcyxGlTZkT0mxdYevjRvHtKpco" alt="Image Radio">
+      <img src="https://private-user-images.githubusercontent.com/44413144/439434645-9176bed2-0798-4cc4-b4cc-6d9bfee7b3f2.png" alt="Image Radio">
     </div>
   </div>
 
@@ -199,7 +194,7 @@
     <a class="button" href="https://mikefri.github.io/RadiosWeb/telechargement.html" target="_blank">⬇️ Télécharger (APK & EXE)</a>
   </div>
 
-    <div class="social-share">
+  <div class="social-share">
     <p>📢 Partagez la radio avec vos amis :</p>
     <div class="share-buttons">
       <a href="https://www.facebook.com/sharer/sharer.php?u=https://mikefri.github.io/RadiosWeb/" target="_blank" class="share facebook" title="Partager sur Facebook">f</a>
