@@ -57,21 +57,38 @@
       100% { background-position: 0% center; }
     }
 
-    .content {
+    .main {
       margin-top: 180px;
+      max-width: 1000px;
+      display: flex;
+      flex-direction: row;
+      gap: 40px;
       padding: 20px;
-      text-align: center;
-      max-width: 900px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
-    p {
+    .text-promo {
+      flex: 1 1 400px;
+    }
+
+    .text-promo p {
       font-size: 1.2em;
-      margin-bottom: 40px;
       line-height: 1.6em;
     }
 
-    .spacer {
-      height: 100px;
+    .image-promo {
+      flex: 1 1 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .image-promo img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
     }
 
     .buttons {
@@ -79,7 +96,7 @@
       flex-wrap: wrap;
       gap: 20px;
       justify-content: center;
-      margin-bottom: 60px;
+      margin: 40px 0 60px;
     }
 
     a.button {
@@ -98,6 +115,23 @@
       transform: scale(1.05);
       box-shadow: 0 0 20px rgba(255, 0, 255, 0.7);
     }
+
+    /* Responsive layout */
+    @media (max-width: 768px) {
+      .main {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .text-promo, .image-promo {
+        flex: 1 1 100%;
+        text-align: center;
+      }
+
+      .text-promo p {
+        font-size: 1.1em;
+      }
+    }
   </style>
 </head>
 <body>
@@ -107,20 +141,23 @@
     <p>La musique en continu, accessible partout, tout le temps !</p>
   </div>
 
-  <div class="content">
-    <p>
-      🎵 Découvrez <strong>Ma Radio Web</strong>, la radio 100% en ligne pensée pour vous accompagner partout : au travail, à la maison, en déplacement... <br><br>
-      🎧 Un simple clic suffit pour <a href="https://mikefri.github.io/RadiosWeb/" style="color:#00ffe0;text-decoration:underline;">écouter en direct depuis votre navigateur</a>, sans inscription, sans pub intrusive. <br><br>
-      📱 Téléchargez l'application pour profiter d'une expérience fluide et dédiée sur <strong>Android</strong> ou <strong>Windows</strong>. Que ce soit sur smartphone, tablette ou PC, emportez votre musique préférée partout avec vous ! <br><br>
-      ⚡ Une interface simple, un son clair, une disponibilité immédiate. Lancez la radio, détendez-vous, et laissez-vous porter par la vibe !
-    </p>
-
-    <div class="spacer"></div>
-
-    <div class="buttons">
-      <a class="button" href="https://mikefri.github.io/RadiosWeb/" target="_blank">🎙️ Écouter en ligne</a>
-      <a class="button" href="https://mikefri.github.io/RadiosWeb/telechargement.html" target="_blank">⬇️ Télécharger (APK & EXE)</a>
+  <div class="main">
+    <div class="text-promo">
+      <p>
+        🎵 Découvrez <strong>Ma Radio Web</strong>, la radio 100% en ligne pensée pour vous accompagner partout : au travail, à la maison, en déplacement…<br><br>
+        🎧 Écoutez facilement <a href="https://mikefri.github.io/RadiosWeb/" style="color:#00ffe0;text-decoration:underline;">depuis votre navigateur</a> : aucun compte, aucune pub intrusive, juste de la bonne musique, tout le temps.<br><br>
+        📱 Téléchargez gratuitement l'application pour <strong>Android</strong> ou <strong>Windows</strong> : une expérience fluide et dédiée à votre plateforme préférée.<br><br>
+        🚀 Lancez la radio, détendez-vous et laissez-vous porter par le son !
+      </p>
     </div>
+    <div class="image-promo">
+      <img src="https://cdn.pixabay.com/photo/2017/03/02/09/04/radio-2119646_1280.jpg" alt="Image Radio">
+    </div>
+  </div>
+
+  <div class="buttons">
+    <a class="button" href="https://mikefri.github.io/RadiosWeb/" target="_blank">🎙️ Écouter en ligne</a>
+    <a class="button" href="https://mikefri.github.io/RadiosWeb/telechargement.html" target="_blank">⬇️ Télécharger (APK & EXE)</a>
   </div>
 
 </body>
