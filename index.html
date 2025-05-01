@@ -305,6 +305,8 @@ body {
 <header class="top-bar">
     <h1>🎧 Radios Web</h1>
 
+    <div id="marquee"><span id="message"></span></div>
+
     <div class="audio-player" id="audioPlayer">
         <img id="radio-logo" src="" alt="Logo radio">
         <div class="equalizer" id="equalizer">
@@ -518,6 +520,14 @@ body {
             });
         });
     });
+
+  fetch('https://raw.githubusercontent.com/mikefri/radios-data/main/Message.json')
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('message').textContent = data.message;
+    })
+    .catch(error => console.error('Erreur de chargement du message :', error));
+    
 </script>
 
 <footer style="text-align: center; padding: 1rem; font-size: 0.85rem; color: #aaa; border-top: 1px solid #333; margin-top: 2rem;">
