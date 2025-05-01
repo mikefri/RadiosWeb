@@ -433,6 +433,8 @@ body {
                         equalizer.classList.remove('paused');
                         equalizer.classList.add('active');
                         document.getElementById('audioPlayer').style.display = 'flex';
+                            // Cacher le message au démarrage de la radio
+                        document.getElementById('marquee').style.display = 'none';
                     });
 
                     radiosContainer.appendChild(radioElement);
