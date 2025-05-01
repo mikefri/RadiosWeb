@@ -23,8 +23,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
-      padding-top: 120px;
     }
 
     .top-bar {
@@ -59,11 +57,20 @@
       100% { background-position: 0% center; }
     }
 
+    .content {
+      margin-top: 180px;
+      padding: 20px;
+      text-align: center;
+      max-width: 800px;
+    }
+
     p {
       font-size: 1.2em;
-      text-align: center;
-      max-width: 600px;
-      margin: 20px auto;
+      margin-bottom: 40px;
+    }
+
+    .spacer {
+      height: 250px; /* espace vertical avant les boutons */
     }
 
     .buttons {
@@ -71,7 +78,7 @@
       flex-wrap: wrap;
       gap: 20px;
       justify-content: center;
-      margin-top: 30px;
+      margin-bottom: 60px;
     }
 
     a.button {
@@ -94,15 +101,4 @@
 </head>
 <body>
 
-  <div class="top-bar">
-    <h1>Ma Radio Web</h1>
-    <p>Écoutez de la bonne musique en continu, partout et à tout moment !</p>
-  </div>
-
-  <div class="buttons">
-    <a class="button" href="https://mikefri.github.io/RadiosWeb/" target="_blank">Écouter en ligne</a>
-    <a class="button" href="https://mikefri.github.io/RadiosWeb/telechargement.html" target="_blank">Télécharger l'application</a>
-  </div>
-
-</body>
-</html>
+  <div class="top-bar"
