@@ -132,6 +132,45 @@
         font-size: 1.1em;
       }
     }
+    .social-share {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.social-share p {
+  font-size: 1.1em;
+  margin-bottom: 15px;
+}
+
+.share-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.share {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.3em;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.share:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px white;
+}
+
+.facebook { background-color: #3b5998; }
+.whatsapp { background-color: #25d366; }
+.twitter  { background-color: #1da1f2; }
+.email    { background-color: #d44638; }
   </style>
 </head>
 <body>
@@ -158,6 +197,16 @@
   <div class="buttons">
     <a class="button" href="https://mikefri.github.io/RadiosWeb/" target="_blank">🎙️ Écouter en ligne</a>
     <a class="button" href="https://mikefri.github.io/RadiosWeb/telechargement.html" target="_blank">⬇️ Télécharger (APK & EXE)</a>
+  </div>
+
+    <div class="social-share">
+    <p>📢 Partagez la radio avec vos amis :</p>
+    <div class="share-buttons">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://mikefri.github.io/RadiosWeb/" target="_blank" class="share facebook" title="Partager sur Facebook">f</a>
+      <a href="https://api.whatsapp.com/send?text=Écoute%20cette%20radio%20géniale%20:%20https://mikefri.github.io/RadiosWeb/" target="_blank" class="share whatsapp" title="Partager sur WhatsApp">w</a>
+      <a href="https://twitter.com/intent/tweet?text=Découvre%20cette%20radio%20en%20ligne%20!&url=https://mikefri.github.io/RadiosWeb/" target="_blank" class="share twitter" title="Partager sur Twitter">t</a>
+      <a href="mailto:?subject=Découvre cette radio en ligne&body=Tu peux l'écouter ici : https://mikefri.github.io/RadiosWeb/" class="share email" title="Partager par Email">@</a>
+    </div>
   </div>
 
 </body>
