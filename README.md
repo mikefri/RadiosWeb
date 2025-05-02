@@ -13,3 +13,6 @@ Ce projet est basé sur une sélection de radios en ligne et peut être facileme
 Une application **EXE** est installable sur votre PC,  
 et une application **APK** est disponible pour les appareils Android.  
 👉 La page de téléchargement est ici : [https://mikefri.github.io/RadiosWeb/telechargement.html](https://mikefri.github.io/RadiosWeb/telechargement.html)
+
+
+On peut tester les flux afin de vérifier si les radios sont fonctionnelles ici : https://proxy-radios-vercel-git-main-micfris-projects.vercel.app/
