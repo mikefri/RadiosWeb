@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Vérification des Radios</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f9f9f9; }
+    h1 { font-size: 1.5em; }
+    .radio { margin-bottom: 10px; padding: 10px; border-radius: 8px; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .ok { color: green; }
+    .ko { color: red; }
+  </style>
+</head>
+<body>
+  <h1>Vérification des flux radios</h1>
+  <div id="resultats">Chargement...</div>
+
+  <script>
+    const resultats = document.getElementById("resultats");
+
+    async function verifierRadios() {
+      try {
+        const res = await fetch("https://raw.githubusercontent.com/mikefri/radios-data/refs/heads/main/radios.json");
+        const radios = await res.json();
+
+        resultats.innerHTML = "";
+        for (const radio of radios) {
+          const nom = radio.name || "Sans nom";
+          const url = radio.url || radio.stream;
+
+          if (!url) continue;
+
+          const div = document.createElement("div");
+          div.className = "radio";
+          div.textContent = `${nom} : test en cours...`;
+          resultats.appendChild(div);
+
+          try {
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 5000);
+
+            const test = await fetch(url, {
+              method: "HEAD",
+              mode: "no-cors", // Empêche le blocage par CORS, mais limite les infos récupérables
+              signal: controller.signal
+            });
+
+            clearTimeout(timeoutId);
+            div.innerHTML = `${nom} : <span class="ok">OK</span>`;
+          } catch (e) {
+            div.innerHTML = `${nom} : <span class="ko">Erreur</span>`;
+          }
+        }
+      } catch (e) {
+        resultats.textContent = "Erreur de chargement du fichier JSON.";
+      }
+    }
+
+    verifierRadios();
+  </script>
+</body>
+</html>
