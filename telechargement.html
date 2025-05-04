@@ -1,35 +1,86 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Téléchargement - RadiosWeb</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      background-color: #0f0c29;
+      background-image: radial-gradient(circle at top left, #0f0c29, #302b63, #24243e);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       padding: 2em;
       text-align: center;
-      background-color: #f9f9f9;
     }
+
     h1 {
-      color: #333;
+      font-size: 2.8em;
+      margin-bottom: 0.5em;
+      background: linear-gradient(90deg, #00ffe0, #ff00ff, #00ffe0);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: neonText 3s linear infinite;
     }
+
+    @keyframes neonText {
+      0% { background-position: 0% center; }
+      50% { background-position: 100% center; }
+      100% { background-position: 0% center; }
+    }
+
+    p {
+      font-size: 1.2em;
+      margin-bottom: 2em;
+    }
+
     .download-button {
       display: inline-block;
       margin: 1em;
       padding: 1em 2em;
-      font-size: 1.2em;
+      font-size: 1.1em;
       color: white;
-      background-color: #007acc;
-      border: none;
-      border-radius: 10px;
+      background: linear-gradient(135deg, #00ffe0, #ff00ff);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 14px;
       text-decoration: none;
-      transition: background-color 0.3s;
+      transition: transform 0.3s, box-shadow 0.3s;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
     }
+
     .download-button:hover {
-      background-color: #005f99;
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+    }
+
+    .return-link {
+      margin-top: 3em;
+      font-size: 1.1em;
+      text-decoration: none;
+      color: #00ffe0;
+      transition: color 0.3s;
+    }
+
+    .return-link:hover {
+      color: #ff00ff;
     }
   </style>
 </head>
@@ -43,7 +94,7 @@
   <br>
   <a href="https://drive.google.com/file/d/1qz1AP71X2vz6HpA_utJpI_S8m0-V_qvL/view?usp=sharing" class="download-button">Télécharger pour Android (.apk)</a>
 
-  <p style="margin-top: 2em;"><a href="index.html">⬅️ Retour à la radio</a></p>
+  <p><a class="return-link" href="index.html">⬅️ Retour à la radio</a></p>
 
 </body>
 </html>
