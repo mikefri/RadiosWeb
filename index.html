@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+
+  <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1976d2">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+  
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-L61JY2BJVJ"></script>
 <script>
@@ -539,6 +545,13 @@ body {
       document.getElementById('message').textContent = data.message;
     })
     .catch(error => console.error('Erreur de chargement du message :', error));
+
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("service-worker.js")
+    .then(() => console.log("Service Worker enregistré"))
+    .catch(error => console.error("Erreur Service Worker :", error));
+}
+  
     
 </script>
 
