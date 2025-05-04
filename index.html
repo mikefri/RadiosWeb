@@ -314,6 +314,22 @@ body {
           0%, 100% { transform: scaleY(0.3); }
           50% { transform: scaleY(1); }
         }
+
+#marquee {
+  text-align: center;
+}
+
+#message {
+  display: inline-block;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+      
     </style>
 
 
