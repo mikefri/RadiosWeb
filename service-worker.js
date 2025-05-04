@@ -1,12 +1,12 @@
 self.addEventListener("install", event => {
   event.waitUntil(
-    caches.open("radios-cache").then(cache => {
+    caches.open("radiosweb-v1").then(cache => {
       return cache.addAll([
         "/RadiosWeb/index.html",
         "/RadiosWeb/manifest.json",
-        "/RadiosWeb/icons/icon-192.png",
-        "/RadiosWeb/icons/icon-512.png",
-        // ajoute ici d'autres ressources importantes
+        "/RadiosWeb/icon-192.png",
+        "/RadiosWeb/icon-512.png",
+        // ajoute ici d'autres fichiers nécessaires (CSS, JS, etc.)
       ]);
     })
   );
@@ -19,4 +19,3 @@ self.addEventListener("fetch", event => {
     })
   );
 });
-
