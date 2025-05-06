@@ -329,6 +329,34 @@ body {
   50%  { transform: scale(1.1); }
   100% { transform: scale(1); }
 }
+
+
+.podcast-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 200;
+}
+
+.podcast-button img {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.podcast-button img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.7);
+}
+
+
+
+
+
+
+
       
     </style>
 
@@ -337,6 +365,9 @@ body {
 <body>
 <header class="top-bar">
     <h1>🎧 Radios Web</h1>
+  <a class="podcast-button" href="https://mikefri.github.io/RadiosWeb/Podcasts.html" title="Écouter les Podcasts" target="_blank">
+  <img src="https://www.adionics.com/wp-content/uploads/2024/02/neon-podcast-logo-1.jpg" alt="Podcast">
+</a>
 
     <div id="marquee"><span id="message"></span></div>
 
