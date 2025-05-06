@@ -334,7 +334,8 @@ body {
 .podcast-button {
   position: absolute;
   top: 20px;
-  right: 20px;
+  left: 70%;
+  transform: translateX(-50%);
   z-index: 200;
 }
 
@@ -365,9 +366,7 @@ body {
 <body>
 <header class="top-bar">
     <h1>🎧 Radios Web</h1>
-  <a class="podcast-button" href="https://mikefri.github.io/RadiosWeb/Podcasts.html" title="Écouter les Podcasts" target="_blank">
-  <img src="https://www.adionics.com/wp-content/uploads/2024/02/neon-podcast-logo-1.jpg" alt="Podcast">
-</a>
+
 
     <div id="marquee"><span id="message"></span></div>
 
@@ -421,6 +420,9 @@ body {
             <option value="Electro/House">Electro/House</option>
         </select>
     </div>
+    <a class="podcast-button" href="https://mikefri.github.io/RadiosWeb/Podcasts.html" title="Écouter les Podcasts" target="_blank">
+  <img src="https://www.adionics.com/wp-content/uploads/2024/02/neon-podcast-logo-1.jpg" alt="Podcast">
+</a>
 </header>
 
 <div class="radio-grid">
