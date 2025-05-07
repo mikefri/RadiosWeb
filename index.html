@@ -333,13 +333,34 @@ body {
 
 
 
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* pour éviter le chevauchement sur petit écran */
+  gap: 10px; /* espace entre le h1 et l'image */
+  padding: 10px;
+  position: relative;
+}
+
 .podcast-img {
-    width: 128px;
-  height: 128px;
+  width: 20vw;
+  max-width: 128px;
+  height: auto;
   cursor: pointer;
-  position: absolute;
-  top: 3px;
-  right: 10px;
+}
+
+h1 {
+  font-size: 2.8em;
+  margin: 0;
+  text-align: center;
+  background: linear-gradient(90deg, #00ffe0, #ff00ff, #00ffe0);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: neonText 3s linear infinite;
+  flex: 1 1 100%;
 }
 
       
