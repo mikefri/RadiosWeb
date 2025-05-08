@@ -336,33 +336,30 @@ body {
 
 .header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between; /* aligne à gauche et droite */
   align-items: center;
-  flex-wrap: wrap; /* pour éviter le chevauchement sur petit écran */
-  gap: 10px; /* espace entre le h1 et l'image */
   padding: 10px;
-  position: relative;
-}
-
-.podcast-img {
-  width: 20vw;
-  max-width: 64px;
-  height: auto;
-  cursor: pointer;
+  flex-wrap: wrap; /* permet à l'image de passer dessous en cas de manque d’espace */
+  gap: 10px;
 }
 
 h1 {
   font-size: 2.8em;
   margin: 0;
-  text-align: center;
   background: linear-gradient(90deg, #00ffe0, #ff00ff, #00ffe0);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: neonText 3s linear infinite;
-  flex: 1 1 100%;
+  flex: 1 1 auto; /* permet au H1 de prendre l'espace disponible */
 }
 
+.podcast-img {
+  width: 64px;        /* taille fixe pour garder le contrôle */
+  height: auto;
+  cursor: pointer;
+  flex-shrink: 0;     /* ne pas rapetisser l’image */
+}
       
     </style>
 
