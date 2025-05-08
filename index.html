@@ -360,6 +360,59 @@ h1 {
   cursor: pointer;
   flex-shrink: 0;     /* ne pas rapetisser l’image */
 }
+
+      .top-bar {
+    background-color: #222; /* Fond sombre */
+    padding: 10px 0;
+    text-align: center;
+  }
+
+  .title-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+    background-color: #222; /* Fond sombre */
+    border-radius: 10px; /* Arrondi des bords */
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.6); /* Ombres néon */
+  }
+
+  .side {
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  .side.right {
+    justify-content: flex-end;
+  }
+
+  .center-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5em; /* Taille de police augmentée */
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+    font-family: 'Montserrat', sans-serif;
+    color: #0ff; /* Couleur néon cyan */
+    text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff, 0 0 40px #0ff; /* Effet néon lumineux */
+  }
+
+  .podcast-img {
+    width: 50px;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .podcast-img:hover {
+    transform: scale(1.1); /* Effet d'agrandissement au survol */
+  }
       
     </style>
 
@@ -367,14 +420,14 @@ h1 {
 </head>
 <body>
 <header class="top-bar">
+    <div class="title-bar">
     <h1>🎧 Radios Web</h1>
-
-
-  <a href="https://mikefri.github.io/RadiosWeb/Podcasts.html">
-    <img src="https://raw.githubusercontent.com/mikefri/RadiosWeb/refs/heads/main/Podcast%20neon%20.png" 
-         alt="Podcast" 
-         class="podcast-img">
-  </a>
+    <a href="https://mikefri.github.io/RadiosWeb/Podcasts.html">
+      <img src="https://raw.githubusercontent.com/mikefri/RadiosWeb/refs/heads/main/Podcast%20neon%20.png" 
+           alt="Podcast" 
+           class="podcast-img">
+    </a>
+  </div>
 
 
     <div id="marquee"><span id="message"></span></div>
