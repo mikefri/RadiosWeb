@@ -1,18 +1,37 @@
-# 🎧 RadiosWeb
+# 📻 RadiosWeb
 
-Bienvenue sur **RadiosWeb**, une interface simple et rapide pour écouter des Web Radios directement depuis un navigateur.
+**RadiosWeb** est une application web légère et intuitive conçue pour écouter vos stations de radio préférées instantanément, directement depuis votre navigateur. Pas d'installation complexe, juste la musique en un clic.
 
-Ce projet est basé sur une sélection de radios en ligne et peut être facilement personnalisé. Une mise à jour des radios est possible sur demande. Cette mise à jour se fera automatiquement sur toutes vos applications installées ou en ligne via le navigateur.
+---
 
-## 🔗 Accès en ligne !   👉 [Écouter la radio](https://mikefri.github.io/RadiosWeb/)
+## ✨ Fonctionnalités
 
-![image](https://github.com/user-attachments/assets/9176bed2-0798-4cc4-b4cc-6d9bfee7b3f2)
+* **Accès Instantané :** Écoutez vos stations préférées sans publicité ajoutée.
+* **Design Responsive :** Interface optimisée pour ordinateurs, tablettes et smartphones.
+* **Léger & Rapide :** Chargement ultra-rapide grâce à une structure optimisée.
+* **Mode PWA :** (Progressive Web App) Installable sur votre écran d'accueil pour une expérience proche d'une application native.
 
+---
 
+## 🚀 Démo en direct
 
-Une application **EXE** est installable sur votre PC,  
-et une application **APK** est disponible pour les appareils Android.  
-👉 La page de téléchargement est ici : [https://mikefri.github.io/RadiosWeb/telechargement.html](https://mikefri.github.io/RadiosWeb/telechargement.html)
+Le projet est hébergé sur GitHub Pages. Vous pouvez y accéder ici :
+👉 **[Lien vers votre site RadiosWeb](https://mikefri.github.io/RadiosWeb/)** *(Note : Vérifiez que l'URL correspond bien à votre nom d'utilisateur)*
 
+---
 
-On peut tester les flux afin de vérifier si les radios sont fonctionnelles ici : https://proxy-radios-vercel-git-main-micfris-projects.vercel.app/
+## 🛠️ Technologies utilisées
+
+* **HTML5 / CSS3** : Pour une interface moderne et fluide.
+* **JavaScript** : Gestion dynamique du lecteur audio et des flux.
+* **Service Workers** : Pour le support du mode hors-ligne et l'installation mobile.
+
+---
+
+## 📥 Installation locale
+
+Si vous souhaitez explorer le code ou le modifier :
+
+1. Clonez le dépôt :
+   ```bash
+   git clone [https://github.com/mikefri/RadiosWeb.git](https://github.com/mikefri/RadiosWeb.git)
