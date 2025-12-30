@@ -16,8 +16,7 @@
 ## 🚀 Démo en direct
 
 Le projet est hébergé sur GitHub Pages. Vous pouvez y accéder ici :
-👉 **[Lien vers votre site RadiosWeb](https://mikefri.github.io/RadiosWeb/)** *(Note : Vérifiez que l'URL correspond bien à votre nom d'utilisateur)*
-
+👉 **[Lien vers votre site RadiosWeb](https://mikefri.github.io/RadiosWeb/)**
 ---
 
 ## 🛠️ Technologies utilisées
