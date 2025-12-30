@@ -1,3 +1,8 @@
+[![Licence: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Vivant-brightgreen)](https://mikefri.github.io/RadiosWeb/)
+[![GitHub stars](https://img.shields.io/github/stars/mikefri/RadiosWeb?style=flat)](https://github.com/mikefri/RadiosWeb/stargazers)
+[![GitHub last commit](https://img.shields.io/github/last-commit/mikefri/RadiosWeb)](https://github.com/
+
 # 📻 RadiosWeb
 
 **RadiosWeb** est une application web légère et intuitive conçue pour écouter vos stations de radio préférées instantanément, directement depuis votre navigateur. Pas d'installation complexe, juste la musique en un clic.
