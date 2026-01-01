@@ -8,7 +8,6 @@
     
     <style>
         :root {
-            /* Palette Candy / Tesla Game */
             --bg-gradient: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
             --candy-pink: #ff4d94;
             --candy-purple: #a18cd1;
@@ -16,10 +15,7 @@
             --text-dark: #4a4a4a;
         }
 
-        * {
-            box-sizing: border-box;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
+        * { box-sizing: border-box; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
 
         body {
             font-family: 'Poppins', sans-serif;
@@ -33,194 +29,136 @@
             align-items: center;
         }
 
-        /* HEADER CANDY */
+        /* HEADER */
         .top-bar {
-            width: 95%;
-            max-width: 1100px;
+            width: 95%; max-width: 1100px;
             margin: 20px auto;
             background: var(--glass);
             backdrop-filter: blur(10px);
             border-radius: 25px;
             padding: 15px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            display: flex; justify-content: space-between; align-items: center;
             box-shadow: 0 10px 30px rgba(255, 77, 148, 0.2);
             border: 2px solid white;
         }
 
         .top-bar h1 {
-            font-size: 1.5rem;
-            margin: 0;
+            font-size: 1.5rem; margin: 0;
             background: linear-gradient(to right, #ff4d94, #a18cd1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             font-weight: 800;
         }
 
-        .nav-icons img {
-            width: 45px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        /* BARRE DE RECHERCHE CANDY */
+        /* CONTROLES (RECHERCHE + FILTRE) */
         .controls-container {
-            width: 90%;
-            max-width: 600px;
+            width: 90%; max-width: 800px;
             margin: 10px 0 30px;
-            display: flex;
-            gap: 10px;
+            display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;
         }
 
         input[type="text"], select {
             background: var(--glass);
             border: 2px solid white;
-            padding: 12px 20px;
+            padding: 12px 25px;
             border-radius: 50px;
             color: var(--text-dark);
             font-weight: 600;
             box-shadow: 0 8px 20px rgba(0,0,0,0.05);
             outline: none;
-            width: 100%;
         }
 
-        input[type="text"]:focus {
-            border-color: var(--candy-pink);
-            transform: scale(1.02);
-        }
+        input[type="text"] { flex: 2; min-width: 250px; }
+        select { flex: 1; min-width: 180px; cursor: pointer; }
 
-        /* GRILLE DE RADIOS */
+        /* GRILLE */
         #radios {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-            gap: 25px;
-            width: 90%;
-            max-width: 1100px;
-            padding-bottom: 120px;
+            gap: 25px; width: 90%; max-width: 1100px;
+            padding-bottom: 140px;
         }
 
         .radio-item {
-            background: var(--glass);
-            padding: 15px;
-            border-radius: 30px;
-            text-align: center;
-            border: 2px solid white;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            cursor: pointer;
-            position: relative;
+            background: var(--glass); padding: 15px;
+            border-radius: 30px; text-align: center;
+            border: 2px solid white; cursor: pointer;
+            position: relative; box-shadow: 0 10px 20px rgba(0,0,0,0.05);
         }
 
-        .radio-item:hover {
-            transform: translateY(-10px) rotate(2deg);
-            background: white;
-            box-shadow: 0 15px 30px rgba(255, 77, 148, 0.3);
-        }
+        .radio-item:hover { transform: translateY(-10px); background: white; }
 
-        .radio-item img {
-            width: 100%;
-            aspect-ratio: 1;
-            object-fit: cover;
-            border-radius: 20px;
-            margin-bottom: 10px;
-        }
-
+        .radio-item img { width: 100%; aspect-ratio: 1; border-radius: 20px; margin-bottom: 10px; object-fit: cover; }
         .radio-item h3 { font-size: 0.9rem; margin: 5px 0; color: #ff4d94; }
-        .radio-item p { font-size: 0.7rem; font-weight: 600; opacity: 0.7; }
+        .radio-item p { font-size: 0.7rem; font-weight: 600; opacity: 0.6; margin: 0; }
 
-        /* PLAYER FLOTTANT CANDY */
+        /* BOUTON COEUR */
+        .favorite-btn {
+            position: absolute; top: 10px; right: 15px;
+            background: white; border: none;
+            width: 35px; height: 35px; border-radius: 50%;
+            font-size: 1.2rem; color: #ccc;
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            z-index: 10;
+        }
+
+        .favorite-btn.favorited { color: var(--candy-pink); }
+
+        /* PLAYER */
         .audio-player {
-            position: fixed;
-            bottom: 30px;
-            width: 90%;
-            max-width: 500px;
-            background: white;
-            border-radius: 40px;
-            padding: 15px 25px;
-            display: none;
-            align-items: center;
-            gap: 15px;
+            position: fixed; bottom: 30px;
+            width: 90%; max-width: 500px;
+            background: white; border-radius: 40px;
+            padding: 15px 25px; display: none;
+            align-items: center; gap: 15px;
             box-shadow: 0 20px 50px rgba(255, 77, 148, 0.4);
-            border: 3px solid #ff4d94;
-            z-index: 2000;
+            border: 3px solid #ff4d94; z-index: 2000;
         }
 
-        #radio-logo {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            border: 3px solid #fecfef;
-            animation: rotate 10s linear infinite;
-        }
-
-        @keyframes rotate { from {transform: rotate(0deg);} to {transform: rotate(360deg);} }
+        #radio-logo-player { width: 60px; height: 60px; border-radius: 50%; border: 3px solid #fecfef; }
 
         .play-btn {
-            background: var(--candy-pink);
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 5px 15px rgba(255, 77, 148, 0.4);
+            background: var(--candy-pink); border: none; border-radius: 50%;
+            width: 50px; height: 50px; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
         }
-
-        .play-btn svg { fill: white; width: 25px; height: 25px; }
-
-        .favorite-btn {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: #ccc;
-            cursor: pointer;
-        }
-
-        .favorite-btn.favorited { color: var(--candy-pink); transform: scale(1.2); }
-
-        /* SCROLLBAR */
-        ::-webkit-scrollbar { width: 10px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: white; border-radius: 10px; border: 3px solid #fecfef; }
     </style>
 </head>
 <body>
 
 <header class="top-bar">
     <div style="display: flex; align-items: center; gap: 10px;">
-        <a href="https://radios-web-mp-3.vercel.app/">
-            <img src="https://raw.githubusercontent.com/mikefri/RadiosWeb/refs/heads/main/mp3.jpg" style="width:40px; border-radius: 10px;" alt="MP3">
-        </a>
+        <img src="https://raw.githubusercontent.com/mikefri/RadiosWeb/refs/heads/main/mp3.jpg" style="width:35px; border-radius: 8px;">
         <h1>Candy Radios</h1>
     </div>
-    <div class="nav-icons">
-        <a href="https://mikefri.github.io/RadiosWeb/Podcasts.html">
-            <img src="https://raw.githubusercontent.com/mikefri/RadiosWeb/refs/heads/main/Podcast%20neon%20.png" alt="Podcasts">
-        </a>
-    </div>
+    <a href="https://mikefri.github.io/RadiosWeb/Podcasts.html">
+        <img src="https://raw.githubusercontent.com/mikefri/RadiosWeb/refs/heads/main/Podcast%20neon%20.png" style="width:40px;">
+    </a>
 </header>
 
 <div class="controls-container">
-    <input type="text" id="search" placeholder="Quelle radio veux-tu ? 🍭">
+    <input type="text" id="search" placeholder="Chercher un bonbon musical... 🍭">
+    <select id="filter">
+        <option value="">Toutes les radios</option>
+        <option value="favorited">❤ Mes Favoris</option>
+        <option value="Pop">Pop</option>
+        <option value="Rock">Rock</option>
+        <option value="Dance">Dance</option>
+        <option value="Electro">Electro</option>
+    </select>
 </div>
 
-<div id="radios">
-    </div>
+<div id="radios"></div>
 
 <div class="audio-player" id="audioPlayer">
-    <img id="radio-logo" src="" alt="">
+    <img id="radio-logo-player" src="">
     <div style="flex-grow: 1;">
-        <div id="now-playing" style="font-weight: 800; font-size: 0.9rem; color: var(--candy-pink);">Lecture en cours</div>
+        <div id="now-playing" style="font-weight: 800; font-size: 0.9rem; color: var(--candy-pink);">Lecture...</div>
         <div id="now-genre" style="font-size: 0.7rem; font-weight: 600;">Genre</div>
     </div>
     <button class="play-btn" id="play-pause">
-        <svg id="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        <svg id="pause-icon" viewBox="0 0 24 24" style="display:none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+        <svg id="play-icon" viewBox="0 0 24 24" width="24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+        <svg id="pause-icon" viewBox="0 0 24 24" width="24" fill="white" style="display:none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
     </button>
 </div>
 
@@ -231,79 +169,109 @@
         const radiosContainer = document.getElementById('radios');
         const audio = document.getElementById('player');
         const audioPlayerUI = document.getElementById('audioPlayer');
-        const playPauseBtn = document.getElementById('play-pause');
-        const playIcon = document.getElementById('play-icon');
-        const pauseIcon = document.getElementById('pause-icon');
         const searchInput = document.getElementById('search');
-
+        const filterSelect = document.getElementById('filter');
+        
         let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
         fetch('https://raw.githubusercontent.com/mikefri/radios-data/main/radios.json')
             .then(res => res.json())
             .then(data => {
-                data.forEach(radio => {
-                    const card = document.createElement('div');
-                    card.className = 'radio-item';
-                    card.innerHTML = `
-                        <button class="favorite-btn ${favorites.includes(radio.name) ? 'favorited' : ''}">${favorites.includes(radio.name) ? '❤' : '♡'}</button>
-                        <img src="${radio.img}" alt="${radio.name}">
-                        <h3>${radio.name}</h3>
-                        <p>${radio.genre}</p>
-                    `;
-
-                    card.addEventListener('click', (e) => {
-                        if(e.target.classList.contains('favorite-btn')) {
-                            toggleFav(radio.name, e.target);
-                            return;
-                        }
-                        playRadio(radio);
-                    });
-                    radiosContainer.appendChild(card);
-                });
+                renderRadios(data);
+                
+                // Event de recherche et filtrage
+                searchInput.addEventListener('input', () => filterAndDisplay(data));
+                filterSelect.addEventListener('change', () => filterAndDisplay(data));
             });
+
+        function renderRadios(data) {
+            radiosContainer.innerHTML = '';
+            data.forEach(radio => {
+                const isFav = favorites.includes(radio.name);
+                const card = document.createElement('div');
+                card.className = 'radio-item';
+                card.setAttribute('data-name', radio.name.toLowerCase());
+                card.setAttribute('data-genre', radio.genre.toLowerCase());
+                card.setAttribute('data-fav', isFav);
+
+                card.innerHTML = `
+                    <button class="favorite-btn ${isFav ? 'favorited' : ''}">${isFav ? '❤' : '♡'}</button>
+                    <img src="${radio.img}">
+                    <h3>${radio.name}</h3>
+                    <p>${radio.genre}</p>
+                `;
+
+                card.addEventListener('click', (e) => {
+                    if(e.target.classList.contains('favorite-btn')) {
+                        toggleFav(radio.name, e.target, card);
+                        return;
+                    }
+                    playRadio(radio);
+                });
+                radiosContainer.appendChild(card);
+            });
+        }
+
+        function filterAndDisplay(data) {
+            const query = searchInput.value.toLowerCase();
+            const filterValue = filterSelect.value;
+            const items = document.querySelectorAll('.radio-item');
+
+            items.forEach(item => {
+                const name = item.getAttribute('data-name');
+                const genre = item.getAttribute('data-genre');
+                const isFav = item.getAttribute('data-fav') === 'true';
+
+                let matchSearch = name.includes(query);
+                let matchFilter = true;
+
+                if (filterValue === 'favorited') {
+                    matchFilter = isFav;
+                } else if (filterValue !== '') {
+                    matchFilter = genre.includes(filterValue.toLowerCase());
+                }
+
+                item.style.display = (matchSearch && matchFilter) ? 'block' : 'none';
+            });
+        }
+
+        function toggleFav(name, btn, card) {
+            if (favorites.includes(name)) {
+                favorites = favorites.filter(f => f !== name);
+                btn.textContent = '♡';
+                btn.classList.remove('favorited');
+                card.setAttribute('data-fav', 'false');
+            } else {
+                favorites.push(name);
+                btn.textContent = '❤';
+                btn.classList.add('favorited');
+                card.setAttribute('data-fav', 'true');
+            }
+            localStorage.setItem('favorites', JSON.stringify(favorites));
+        }
 
         function playRadio(radio) {
             audio.src = radio.url;
             audio.play();
             audioPlayerUI.style.display = 'flex';
-            document.getElementById('radio-logo').src = radio.img;
+            document.getElementById('radio-logo-player').src = radio.img;
             document.getElementById('now-playing').textContent = radio.name;
             document.getElementById('now-genre').textContent = radio.genre;
-            playIcon.style.display = 'none';
-            pauseIcon.style.display = 'block';
+            document.getElementById('play-icon').style.display = 'none';
+            document.getElementById('pause-icon').style.display = 'block';
         }
 
-        function toggleFav(name, btn) {
-            if (favorites.includes(name)) {
-                favorites = favorites.filter(f => f !== name);
-                btn.textContent = '♡';
-                btn.classList.remove('favorited');
-            } else {
-                favorites.push(name);
-                btn.textContent = '❤';
-                btn.classList.add('favorited');
-            }
-            localStorage.setItem('favorites', JSON.stringify(favorites));
-        }
-
-        playPauseBtn.addEventListener('click', () => {
+        // Gestion Play/Pause
+        document.getElementById('play-pause').addEventListener('click', () => {
             if (audio.paused) {
                 audio.play();
-                playIcon.style.display = 'none';
-                pauseIcon.style.display = 'block';
+                document.getElementById('play-icon').style.display = 'none';
+                document.getElementById('pause-icon').style.display = 'block';
             } else {
                 audio.pause();
-                playIcon.style.display = 'block';
-                pauseIcon.style.display = 'none';
+                document.getElementById('play-icon').style.display = 'block';
+                document.getElementById('pause-icon').style.display = 'none';
             }
-        });
-
-        searchInput.addEventListener('input', (e) => {
-            const val = e.target.value.toLowerCase();
-            document.querySelectorAll('.radio-item').forEach(item => {
-                const title = item.querySelector('h3').textContent.toLowerCase();
-                item.style.display = title.includes(val) ? 'block' : 'none';
-            });
         });
     });
 </script>
