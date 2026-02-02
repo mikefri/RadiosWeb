@@ -1,64 +1,37 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <link rel="manifest" href="manifest.json">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#e0d4f5">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <link rel="apple-touch-icon" href="icon-192.png">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="icon-192.png">
+  
   <title>RadiosWeb - Écoutez Radio en Direct, Podcasts et MP3 gratuitement</title>
-  <meta name="description" content="Accédez à des stations de radio en direct, découvrez des podcasts en ligne sur RadiosWeb. Une expérience audio fluide et gratuite.">
-  <meta name="keywords" content="radio en ligne, écouter radio direct, podcast gratuit, RadiosWeb, streaming audio, écouter la radio en direct gratuitement sur internet">
+  <meta name="description" content="Accédez à des stations de radio en direct, découvrez des podcasts en ligne sur RadiosWeb.">
+  <meta name="keywords" content="radio en ligne, écouter radio direct, podcast gratuit, RadiosWeb">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://mikefri.github.io/RadiosWeb">
+  
+  <!-- Open Graph -->
   <meta property="og:title" content="RadiosWeb - Votre univers audio : Radios, Podcasts">
-  <meta property="og:description" content="Écoutez vos stations préférées et podcasts en un clic. Profitez d'un lecteur audio complet et gratuit sur RadiosWeb.">
+  <meta property="og:description" content="Écoutez vos stations préférées et podcasts en un clic.">
   <meta property="og:url" content="https://mikefri.github.io/RadiosWeb">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://mikefri.github.io/RadiosWeb/social-card.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="RadiosWeb - Radio & Podcasts en ligne">
-  <meta name="twitter:description" content="Le meilleur de la radio et des podcasts sur une seule plateforme.">
-  <meta name="twitter:image" content="https://mikefri.github.io/RadiosWeb/social-card.jpg">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "RadiosWeb",
-    "url": "https://mikefri.github.io/RadiosWeb",
-    "description": "Plateforme de streaming permettant d'écouter des stations de radio en direct, des podcasts.",
-    "applicationCategory": "MultimediaApplication",
-    "genre": "Audio, Music, Entertainment",
-    "browserRequirements": "Requires JavaScript and HTML5 support",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "EUR"
-    }
-  }
-  </script>
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L61JY2BJVJ"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-L61JY2BJVJ');
-  </script>
-
+  
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  
   <style>
+    /* ===== RESET & BASE ===== */
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
     body {
       font-family: 'Montserrat', sans-serif;
-      margin: 0;
-      background: linear-gradient(135deg, #f0eafa, #d4f4e2, #e0f7fa); /* Dégradé pastel doux et moderne 2026 */
+      background: linear-gradient(135deg, #f0eafa, #d4f4e2, #e0f7fa);
       background-size: 400% 400%;
       animation: gradientShift 20s ease infinite;
       color: #333;
@@ -69,6 +42,7 @@
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
+    /* ===== TOP BAR ===== */
     .top-bar {
       position: fixed;
       top: 0;
@@ -84,37 +58,39 @@
       border-bottom: 1px solid rgba(0, 0, 0, 0.1);
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
+    .title-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 1200px;
+      padding: 0 20px;
+    }
     h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 3em;
-      margin: 0 0 10px;
-      color: #6a5acd; /* Violet pastel élégant */
+      font-size: 2.5em;
+      color: #6a5acd;
       text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
     }
-    .controls {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 20px;
+    @media (max-width: 600px) {
+      h1 { font-size: 1.8em; }
     }
-    input[type="text"], select {
-      padding: 12px 16px;
-      border-radius: 30px;
-      border: none;
-      font-size: 1em;
-      background: rgba(255, 255, 255, 0.8);
-      color: #333;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s;
+    .mp3-img, .podcast-img {
+      width: 50px;
+      height: 50px;
+      transition: transform 0.3s;
     }
-    input[type="text"]::placeholder {
-      color: #888;
+    .mp3-img:hover, .podcast-img:hover {
+      transform: scale(1.15);
     }
-    input[type="text"]:focus, select:focus {
-      outline: none;
-      box-shadow: 0 0 0 3px rgba(186, 151, 255, 0.4);
+    /* ===== MESSAGE MARQUEE ===== */
+    #marquee {
+      text-align: center;
+      padding: 10px;
+      font-size: 1.1em;
+      color: #6a5acd;
     }
+    /* ===== AUDIO PLAYER ===== */
     .audio-player {
       margin-top: 10px;
       background: rgba(255, 255, 255, 0.8);
@@ -127,8 +103,13 @@
       justify-content: center;
       gap: 20px;
       max-width: 800px;
-      width: 100%;
+      width: 95%;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      animation: fadeIn 0.3s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     .audio-player img {
       width: 70px;
@@ -137,6 +118,31 @@
       object-fit: cover;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
+    .audio-info {
+      text-align: center;
+    }
+    .audio-info .now-playing {
+      font-weight: 600;
+      font-size: 1.3em;
+      color: #6a5acd;
+    }
+    .audio-info .genre {
+      color: #777;
+      font-size: 0.9em;
+    }
+    /* ===== LOADING STATUS ===== */
+    .loading-status {
+      font-size: 0.85em;
+      color: #888;
+      margin-top: 4px;
+    }
+    .loading-status.error {
+      color: #e74c3c;
+    }
+    .loading-status.buffering {
+      color: #f39c12;
+    }
+    /* ===== EQUALIZER ===== */
     .equalizer {
       width: 30px;
       height: 30px;
@@ -148,30 +154,23 @@
     .equalizer span {
       width: 4px;
       height: 10px;
-      background: #ba97ff; /* Violet pastel */
+      background: #ba97ff;
       border-radius: 2px;
-      animation: bounce 1.5s infinite ease-in-out;
+      animation: bounce 0.6s infinite ease-in-out;
       animation-play-state: paused;
     }
     .equalizer.active span {
       animation-play-state: running;
     }
     .equalizer span:nth-child(1) { animation-delay: 0s; }
-    .equalizer span:nth-child(2) { animation-delay: 0.2s; }
-    .equalizer span:nth-child(3) { animation-delay: 0.4s; }
-    .equalizer span:nth-child(4) { animation-delay: 0.6s; }
+    .equalizer span:nth-child(2) { animation-delay: 0.15s; }
+    .equalizer span:nth-child(3) { animation-delay: 0.3s; }
+    .equalizer span:nth-child(4) { animation-delay: 0.45s; }
     @keyframes bounce {
       0%, 100% { transform: scaleY(0.4); }
       50% { transform: scaleY(1); }
     }
-    .audio-info .now-playing {
-      font-weight: 600;
-      font-size: 1.4em;
-      color: #6a5acd;
-    }
-    .audio-info .genre {
-      color: #777;
-    }
+    /* ===== AUDIO CONTROLS ===== */
     .audio-controls button {
       background: none;
       border: none;
@@ -183,9 +182,8 @@
     .audio-controls button:hover {
       transform: scale(1.15);
     }
+    /* ===== VOLUME ===== */
     .volume-control {
-      flex-grow: 1;
-      max-width: 250px;
       display: flex;
       align-items: center;
       gap: 10px;
@@ -193,9 +191,14 @@
       padding: 8px 15px;
       border-radius: 30px;
     }
+    .volume-icon {
+      cursor: pointer;
+      font-size: 1.2em;
+      user-select: none;
+    }
     #volumeSlider {
       -webkit-appearance: none;
-      width: 100%;
+      width: 100px;
       height: 8px;
       background: #ddd;
       border-radius: 10px;
@@ -208,84 +211,209 @@
       background: #ba97ff;
       border-radius: 50%;
       cursor: pointer;
+      transition: transform 0.2s;
     }
+    #volumeSlider::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+    }
+    /* ===== SEARCH & FILTERS ===== */
+    .controls {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 15px;
+      padding: 0 10px;
+    }
+    input[type="text"], select {
+      padding: 12px 18px;
+      border-radius: 30px;
+      border: none;
+      font-size: 1em;
+      background: rgba(255, 255, 255, 0.9);
+      color: #333;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s;
+    }
+    input[type="text"] {
+      width: 250px;
+    }
+    input[type="text"]::placeholder {
+      color: #888;
+    }
+    input[type="text"]:focus, select:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(186, 151, 255, 0.4);
+    }
+    /* ===== LOADER ===== */
+    #loader {
+      text-align: center;
+      padding: 60px 20px;
+      color: #6a5acd;
+    }
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 4px solid #e0d4f5;
+      border-top: 4px solid #ba97ff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 20px;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    /* ===== ERROR MESSAGE ===== */
+    .error-container {
+      text-align: center;
+      padding: 60px 20px;
+      color: #e74c3c;
+    }
+    .error-container button {
+      margin-top: 20px;
+      padding: 12px 30px;
+      background: linear-gradient(45deg, #ba97ff, #9ed7ff);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .error-container button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(186, 151, 255, 0.4);
+    }
+    /* ===== RADIO GRID ===== */
     #radios {
       margin-top: 280px;
       padding: 40px 20px;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 25px;
       max-width: 1200px;
       margin-left: auto;
       margin-right: auto;
     }
+    /* Adjust margin when player is visible */
+    #radios.player-visible {
+      margin-top: 400px;
+    }
+    /* ===== RADIO CARD ===== */
     .radio-item {
+      position: relative;
       background: rgba(255, 255, 255, 0.85);
       border-radius: 25px;
-      padding: 25px;
+      padding: 25px 15px;
       text-align: center;
-      transition: all 0.4s ease;
+      transition: all 0.3s ease;
       cursor: pointer;
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
     }
     .radio-item:hover {
-      transform: translateY(-10px);
+      transform: translateY(-8px);
       box-shadow: 0 15px 35px rgba(186, 151, 255, 0.3);
     }
+    /* Focus pour accessibilité clavier */
+    .radio-item:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(186, 151, 255, 0.6);
+    }
+    .radio-item.playing {
+      border: 3px solid #ba97ff;
+      box-shadow: 0 0 25px rgba(186, 151, 255, 0.4);
+    }
     .radio-item img {
-      width: 110px;
-      height: 110px;
+      width: 100px;
+      height: 100px;
       object-fit: cover;
       border-radius: 20px;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
-    .name {
+    .radio-item .name {
       font-weight: 600;
       color: #6a5acd;
+      margin-bottom: 4px;
+      font-size: 0.95em;
     }
-    .genre {
-      font-size: 0.9em;
+    .radio-item .genre {
+      font-size: 0.8em;
       color: #777;
     }
+    .radio-item .playing-indicator {
+      margin-top: 8px;
+      font-size: 0.75em;
+      color: #ba97ff;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    /* ===== FAVORITE BUTTON ===== */
     .favorite-btn {
       position: absolute;
       top: 10px;
       right: 10px;
       background: none;
       border: none;
-      font-size: 1.8em;
+      font-size: 1.6em;
       cursor: pointer;
       color: #ccc;
-      transition: color 0.3s;
+      transition: all 0.3s;
+      z-index: 10;
     }
-    .favorite-btn.favorited, .favorite-btn:hover {
-      color: #ff9ec9; /* Rose pastel */
+    .favorite-btn:hover {
+      color: #ff9ec9;
+      transform: scale(1.2);
     }
-    .radio-item {
-      position: relative;
+    .favorite-btn.favorited {
+      color: #ff9ec9;
     }
-    #marquee {
+    /* ===== NO RESULTS ===== */
+    .no-results {
+      grid-column: 1 / -1;
       text-align: center;
-      padding: 10px;
-      font-size: 1.1em;
-      color: #6a5acd;
+      padding: 60px 20px;
+      color: #888;
     }
-    .title-bar {
+    .no-results span {
+      font-size: 3em;
+      display: block;
+      margin-bottom: 15px;
+    }
+    /* ===== TOAST NOTIFICATION ===== */
+    .toast {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #e74c3c;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+      z-index: 200;
+      display: none;
+      animation: slideIn 0.3s ease;
+    }
+    .toast.show {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      max-width: 1200px;
-      padding: 0 20px;
+      gap: 10px;
     }
-    .mp3-img, .podcast-img {
-      width: 60px;
-      transition: transform 0.3s;
+    .toast button {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.2em;
+      cursor: pointer;
     }
-    .mp3-img:hover, .podcast-img:hover {
-      transform: scale(1.15);
+    @keyframes slideIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
     }
+    /* ===== FOOTER ===== */
     footer {
       text-align: center;
       padding: 2rem;
@@ -301,37 +429,62 @@
       border-radius: 30px;
       cursor: pointer;
       transition: all 0.3s;
+      font-size: 1em;
+      margin: 10px 0;
     }
     footer button:hover {
       transform: scale(1.05);
       box-shadow: 0 8px 20px rgba(186, 151, 255, 0.4);
     }
+    .kofi-section {
+      margin-top: 20px;
+    }
+    .kofi-section p {
+      margin-bottom: 10px;
+      color: #666;
+    }
+    .kofi-section img {
+      height: 36px;
+      transition: transform 0.3s;
+    }
+    .kofi-section img:hover {
+      transform: scale(1.05);
+    }
   </style>
 </head>
 <body>
+<!-- Toast Notification -->
+<div id="toast" class="toast">
+  <span id="toast-message">Erreur</span>
+  <button onclick="hideToast()" aria-label="Fermer">✕</button>
+</div>
 <header class="top-bar">
   <div class="title-bar">
-    <a href="https://radios-web-mp-3.vercel.app/">
-      <img src="https://raw.githubusercontent.com/mikefri/RadiosWeb/refs/heads/main/mp3.png" alt="mp3" class="mp3-img">
+    <a href="https://radios-web-mp-3.vercel.app/" target="_blank" rel="noopener">
+      <img src="https://raw.githubusercontent.com/mikefri/RadiosWeb/refs/heads/main/mp3.png" alt="MP3" class="mp3-img">
     </a>
     <h1>🎧 Radios Web</h1>
-    <a href="https://mikefri.github.io/RadiosWeb/Podcasts.html">
+    <a href="https://mikefri.github.io/RadiosWeb/Podcasts.html" target="_blank" rel="noopener">
       <img src="https://raw.githubusercontent.com/mikefri/RadiosWeb/refs/heads/main/Podcast%20neon%20.png" alt="Podcast" class="podcast-img">
     </a>
   </div>
   <div id="marquee"><span id="message"></span></div>
   <div class="audio-player" id="audioPlayer">
     <img id="radio-logo" src="" alt="Logo radio">
+    
     <div class="equalizer" id="equalizer">
       <span></span><span></span><span></span><span></span>
     </div>
+    
     <div class="audio-info">
       <div class="now-playing" id="now-playing">Aucune lecture</div>
       <div class="genre" id="now-genre">Genre</div>
+      <div class="loading-status" id="loading-status"></div>
     </div>
+    
     <div class="audio-controls">
-      <button id="play-pause" aria-label="Lire / Pause">
-        <svg id="play-icon" xmlns="http://www.w3.org/2000/svg" height="48" width="48" fill="#ba97ff" style="display: inline;">
+      <button id="play-pause" aria-label="Lecture / Pause">
+        <svg id="play-icon" xmlns="http://www.w3.org/2000/svg" height="48" width="48" fill="#ba97ff">
           <path d="M16 10v28l22-14Z" />
         </svg>
         <svg id="pause-icon" xmlns="http://www.w3.org/2000/svg" height="48" width="48" fill="#ba97ff" style="display: none;">
@@ -339,17 +492,18 @@
         </svg>
       </button>
     </div>
+    
     <div class="volume-control">
-      <span id="volumeIcon">🔊</span>
-      <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="1">
+      <span id="volumeIcon" class="volume-icon">🔊</span>
+      <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="1" aria-label="Volume">
     </div>
   </div>
-  <audio id="player"></audio>
+  <audio id="player" preload="none"></audio>
   <div class="controls">
-    <input type="text" id="search" placeholder="🔍 Rechercher une radio...">
-    <select id="filter">
+    <input type="text" id="search" placeholder="🔍 Rechercher une radio..." aria-label="Rechercher une radio">
+    <select id="filter" aria-label="Filtrer par catégorie">
       <option value="">Toutes les catégories</option>
-      <option value="favorited">Favoris</option>
+      <option value="favorited">⭐ Favoris</option>
       <option value="Pop">Pop</option>
       <option value="Pop-Rock">Pop-Rock</option>
       <option value="Rock">Rock</option>
@@ -365,165 +519,340 @@
     </select>
   </div>
 </header>
-<div class="radio-grid">
-  <div id="radios"></div>
-</div>
-
-<script>
-  // Le script JavaScript reste inchangé (fonctionnalités identiques)
-  document.addEventListener('DOMContentLoaded', function () {
-    const radiosContainer = document.getElementById('radios');
-    const audio = document.getElementById('player');
-    const nowPlaying = document.getElementById('now-playing');
-    const nowGenre = document.getElementById('now-genre');
-    const radioLogo = document.getElementById('radio-logo');
-    const playPauseButton = document.getElementById('play-pause');
-    const playIcon = document.getElementById('play-icon');
-    const pauseIcon = document.getElementById('pause-icon');
-    const volumeSlider = document.getElementById('volumeSlider');
-    const volumeIcon = document.getElementById('volumeIcon');
-    const equalizer = document.getElementById('equalizer');
-    const searchInput = document.getElementById('search');
-    const filterSelect = document.getElementById('filter');
-    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-
-    function updateFavoritesButton(radioName, button) {
-      if (favorites.includes(radioName)) {
-        button.classList.add('favorited');
-        button.textContent = '★';
-      } else {
-        button.classList.remove('favorited');
-        button.textContent = '☆';
-      }
-    }
-
-    fetch('https://raw.githubusercontent.com/mikefri/radios-data/main/radios.json')
-      .then(response => response.json())
-      .then(data => {
-        data.forEach(radio => {
-          const radioElement = document.createElement('div');
-          radioElement.classList.add('radio-item');
-          radioElement.innerHTML = `
-            <img src="${radio.img}" alt="${radio.name}" />
-            <div class="name">${radio.name}</div>
-            <div class="genre">${radio.genre}</div>
-            <button class="favorite-btn ${favorites.includes(radio.name) ? 'favorited' : ''}" aria-label="Ajouter aux favoris">
-              ${favorites.includes(radio.name) ? '★' : '☆'}
-            </button>
-          `;
-          const favoriteButton = radioElement.querySelector('.favorite-btn');
-          favoriteButton.addEventListener('click', (e) => {
-            e.stopPropagation();
-            if (favorites.includes(radio.name)) {
-              favorites = favorites.filter(fav => fav !== radio.name);
-            } else {
-              favorites.push(radio.name);
-            }
-            localStorage.setItem('favorites', JSON.stringify(favorites));
-            updateFavoritesButton(radio.name, favoriteButton);
-          });
-          radioElement.addEventListener('click', () => {
-            audio.src = radio.url;
-            audio.play();
-            nowPlaying.textContent = radio.name;
-            nowGenre.textContent = radio.genre;
-            radioLogo.src = radio.img;
-            playIcon.style.display = 'none';
-            pauseIcon.style.display = 'inline';
-            equalizer.classList.add('active');
-            document.getElementById('audioPlayer').style.display = 'flex';
-            document.getElementById('marquee').style.display = 'none';
-          });
-          radiosContainer.appendChild(radioElement);
-          updateFavoritesButton(radio.name, favoriteButton);
-        });
-      });
-
-    function updateVolumeIcon(volume) {
-      if (volume == 0) volumeIcon.textContent = '🔇';
-      else if (volume <= 0.3) volumeIcon.textContent = '🔈';
-      else if (volume <= 0.7) volumeIcon.textContent = '🔉';
-      else volumeIcon.textContent = '🔊';
-    }
-
-    volumeSlider.addEventListener('input', function () {
-      audio.volume = this.value;
-      updateVolumeIcon(this.value);
-    });
-
-    volumeIcon.addEventListener('click', () => {
-      if (audio.volume > 0) {
-        audio.volume = 0;
-        volumeSlider.value = 0;
-      } else {
-        audio.volume = 1;
-        volumeSlider.value = 1;
-      }
-      updateVolumeIcon(audio.volume);
-    });
-
-    playPauseButton.addEventListener('click', () => {
-      if (audio.paused) {
-        audio.play();
-        playIcon.style.display = 'none';
-        pauseIcon.style.display = 'inline';
-        equalizer.classList.add('active');
-      } else {
-        audio.pause();
-        playIcon.style.display = 'inline';
-        pauseIcon.style.display = 'none';
-        equalizer.classList.remove('active');
-      }
-    });
-
-    searchInput.addEventListener('input', function () {
-      const query = this.value.toLowerCase();
-      document.querySelectorAll('.radio-item').forEach(item => {
-        const name = item.querySelector('.name').textContent.toLowerCase();
-        item.style.display = name.includes(query) ? 'block' : 'none';
-      });
-    });
-
-    filterSelect.addEventListener('change', function () {
-      const filter = this.value;
-      document.querySelectorAll('.radio-item').forEach(item => {
-        const genre = item.querySelector('.genre').textContent;
-        const isFavorited = item.querySelector('.favorite-btn').classList.contains('favorited');
-        if (filter === 'favorited') {
-          item.style.display = isFavorited ? 'block' : 'none';
-        } else if (filter && !genre.toLowerCase().includes(filter.toLowerCase())) {
-          item.style.display = 'none';
-        } else {
-          item.style.display = 'block';
-        }
-      });
-    });
-  });
-
-  fetch('https://raw.githubusercontent.com/mikefri/radios-data/main/Message.json')
-    .then(response => response.json())
-    .then(data => {
-      document.getElementById('message').textContent = data.message;
-    });
-
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("service-worker.js")
-      .then(() => console.log("Service Worker enregistré"))
-      .catch(error => console.error("Erreur Service Worker :", error));
-  }
-</script>
-
+<main id="radios">
+  <!-- Loader affiché pendant le chargement -->
+  <div id="loader">
+    <div class="spinner"></div>
+    <p>Chargement des radios...</p>
+  </div>
+</main>
 <footer>
-  © 2025 Radios Web . Fait avec ❤️ par Micfri
-  <button onclick="window.location.href='https://proxy-radios-vercel.vercel.app/';">
-    Test des radios
+  <p>© 2025 Radios Web . Fait avec ❤️ par Micfri</p>
+  <button onclick="window.open('https://proxy-radios-vercel.vercel.app/', '_blank')">
+    🧪 Test des radios
   </button>
   <div class="kofi-section">
     <p>Si cet outil vous est utile, vous pouvez me soutenir :</p>
     <a href="https://ko-fi.com/mikefri" target="_blank" rel="noopener">
-      <img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="Soutenir sur Ko-fi" style="height: 36px;">
+      <img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="Soutenir sur Ko-fi">
     </a>
   </div>
 </footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // ===== ÉLÉMENTS DOM =====
+  const radiosContainer = document.getElementById('radios');
+  const loader = document.getElementById('loader');
+  const audio = document.getElementById('player');
+  const nowPlaying = document.getElementById('now-playing');
+  const nowGenre = document.getElementById('now-genre');
+  const loadingStatus = document.getElementById('loading-status');
+  const radioLogo = document.getElementById('radio-logo');
+  const playPauseButton = document.getElementById('play-pause');
+  const playIcon = document.getElementById('play-icon');
+  const pauseIcon = document.getElementById('pause-icon');
+  const volumeSlider = document.getElementById('volumeSlider');
+  const volumeIcon = document.getElementById('volumeIcon');
+  const equalizer = document.getElementById('equalizer');
+  const audioPlayer = document.getElementById('audioPlayer');
+  const searchInput = document.getElementById('search');
+  const filterSelect = document.getElementById('filter');
+  const marquee = document.getElementById('marquee');
+  // ===== ÉTAT DE L'APPLICATION =====
+  let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+  let currentRadioName = '';
+  let allRadioElements = [];
+  // ===== FONCTIONS UTILITAIRES =====
+  // Afficher le toast d'erreur
+  window.showToast = function(message) {
+    const toast = document.getElementById('toast');
+    const toastMessage = document.getElementById('toast-message');
+    toastMessage.textContent = message;
+    toast.classList.add('show');
+    
+    setTimeout(() => {
+      hideToast();
+    }, 5000);
+  };
+  window.hideToast = function() {
+    document.getElementById('toast').classList.remove('show');
+  };
+  // Mettre à jour l'icône du volume
+  function updateVolumeIcon(volume) {
+    if (volume == 0) volumeIcon.textContent = '🔇';
+    else if (volume <= 0.3) volumeIcon.textContent = '🔈';
+    else if (volume <= 0.7) volumeIcon.textContent = '🔉';
+    else volumeIcon.textContent = '🔊';
+  }
+  // Mettre à jour le bouton favori
+  function updateFavoriteButton(radioName, button) {
+    if (favorites.includes(radioName)) {
+      button.classList.add('favorited');
+      button.textContent = '★';
+      button.setAttribute('aria-label', 'Retirer des favoris');
+    } else {
+      button.classList.remove('favorited');
+      button.textContent = '☆';
+      button.setAttribute('aria-label', 'Ajouter aux favoris');
+    }
+  }
+  // Mettre à jour l'état de lecture
+  function updatePlayState(isPlaying) {
+    if (isPlaying) {
+      playIcon.style.display = 'none';
+      pauseIcon.style.display = 'inline';
+      equalizer.classList.add('active');
+    } else {
+      playIcon.style.display = 'inline';
+      pauseIcon.style.display = 'none';
+      equalizer.classList.remove('active');
+    }
+  }
+  // Marquer la radio en cours de lecture
+  function markPlayingRadio(radioName) {
+    document.querySelectorAll('.radio-item').forEach(item => {
+      item.classList.remove('playing');
+      const indicator = item.querySelector('.playing-indicator');
+      if (indicator) indicator.remove();
+    });
+    const playingItem = document.querySelector(`.radio-item[data-name="${radioName}"]`);
+    if (playingItem) {
+      playingItem.classList.add('playing');
+      const indicator = document.createElement('div');
+      indicator.className = 'playing-indicator';
+      indicator.textContent = '▶ En cours...';
+      playingItem.appendChild(indicator);
+    }
+  }
+  // Créer un élément radio
+  function createRadioElement(radio) {
+    const radioElement = document.createElement('div');
+    radioElement.classList.add('radio-item');
+    radioElement.setAttribute('tabindex', '0');
+    radioElement.setAttribute('role', 'button');
+    radioElement.setAttribute('aria-label', `Écouter ${radio.name}`);
+    radioElement.setAttribute('data-name', radio.name);
+    radioElement.setAttribute('data-genre', radio.genre);
+    radioElement.innerHTML = `
+      <img src="${radio.img}" alt="${radio.name}" loading="lazy" />
+      <div class="name">${radio.name}</div>
+      <div class="genre">${radio.genre}</div>
+      <button class="favorite-btn ${favorites.includes(radio.name) ? 'favorited' : ''}" 
+              aria-label="${favorites.includes(radio.name) ? 'Retirer des favoris' : 'Ajouter aux favoris'}">
+        ${favorites.includes(radio.name) ? '★' : '☆'}
+      </button>
+    `;
+    // Événement favori
+    const favoriteButton = radioElement.querySelector('.favorite-btn');
+    favoriteButton.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (favorites.includes(radio.name)) {
+        favorites = favorites.filter(fav => fav !== radio.name);
+      } else {
+        favorites.push(radio.name);
+      }
+      localStorage.setItem('favorites', JSON.stringify(favorites));
+      updateFavoriteButton(radio.name, favoriteButton);
+      
+      // Réappliquer le filtre si on est sur "Favoris"
+      if (filterSelect.value === 'favorited') {
+        filterRadios();
+      }
+    });
+    // Événement lecture
+    function playRadio() {
+      currentRadioName = radio.name;
+      loadingStatus.textContent = '⏳ Connexion...';
+      loadingStatus.className = 'loading-status buffering';
+      
+      audio.src = radio.url;
+      audio.play()
+        .then(() => {
+          loadingStatus.textContent = '';
+        })
+        .catch(err => {
+          console.error('Erreur de lecture:', err);
+          showToast('❌ Impossible de lire cette station');
+          loadingStatus.textContent = 'Erreur de lecture';
+          loadingStatus.className = 'loading-status error';
+        });
+      nowPlaying.textContent = radio.name;
+      nowGenre.textContent = radio.genre;
+      radioLogo.src = radio.img;
+      radioLogo.alt = radio.name;
+      
+      audioPlayer.style.display = 'flex';
+      marquee.style.display = 'none';
+      radiosContainer.classList.add('player-visible');
+      
+      markPlayingRadio(radio.name);
+    }
+    radioElement.addEventListener('click', playRadio);
+    
+    // Navigation clavier
+    radioElement.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        playRadio();
+      }
+    });
+    return radioElement;
+  }
+  // Filtrer les radios
+  function filterRadios() {
+    const searchQuery = searchInput.value.toLowerCase();
+    const filterValue = filterSelect.value;
+    let visibleCount = 0;
+    allRadioElements.forEach(item => {
+      const name = item.getAttribute('data-name').toLowerCase();
+      const genre = item.getAttribute('data-genre').toLowerCase();
+      const isFavorited = favorites.includes(item.getAttribute('data-name'));
+      let matchesSearch = name.includes(searchQuery);
+      let matchesFilter = true;
+      if (filterValue === 'favorited') {
+        matchesFilter = isFavorited;
+      } else if (filterValue) {
+        matchesFilter = genre.includes(filterValue.toLowerCase());
+      }
+      if (matchesSearch && matchesFilter) {
+        item.style.display = 'block';
+        visibleCount++;
+      } else {
+        item.style.display = 'none';
+      }
+    });
+    // Afficher message si aucun résultat
+    let noResults = document.querySelector('.no-results');
+    if (visibleCount === 0) {
+      if (!noResults) {
+        noResults = document.createElement('div');
+        noResults.className = 'no-results';
+        noResults.innerHTML = '<span>🔍</span><p>Aucune radio trouvée</p>';
+        radiosContainer.appendChild(noResults);
+      }
+      noResults.style.display = 'block';
+    } else if (noResults) {
+      noResults.style.display = 'none';
+    }
+  }
+  // ===== ÉVÉNEMENTS AUDIO =====
+  audio.addEventListener('playing', () => {
+    updatePlayState(true);
+    loadingStatus.textContent = '';
+    loadingStatus.className = 'loading-status';
+  });
+  audio.addEventListener('pause', () => {
+    updatePlayState(false);
+  });
+  audio.addEventListener('waiting', () => {
+    loadingStatus.textContent = '⏳ Chargement...';
+    loadingStatus.className = 'loading-status buffering';
+  });
+  audio.addEventListener('error', () => {
+    showToast('❌ Erreur de lecture. Essayez une autre station.');
+    loadingStatus.textContent = 'Erreur de connexion';
+    loadingStatus.className = 'loading-status error';
+    updatePlayState(false);
+  });
+  // ===== CONTRÔLES VOLUME =====
+  volumeSlider.addEventListener('input', function() {
+    audio.volume = this.value;
+    updateVolumeIcon(this.value);
+  });
+  volumeIcon.addEventListener('click', () => {
+    if (audio.volume > 0) {
+      audio.dataset.previousVolume = audio.volume;
+      audio.volume = 0;
+      volumeSlider.value = 0;
+    } else {
+      const previousVolume = audio.dataset.previousVolume || 1;
+      audio.volume = previousVolume;
+      volumeSlider.value = previousVolume;
+    }
+    updateVolumeIcon(audio.volume);
+  });
+  // ===== CONTRÔLE PLAY/PAUSE =====
+  playPauseButton.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.play().catch(() => {
+        showToast('❌ Impossible de reprendre la lecture');
+      });
+    } else {
+      audio.pause();
+    }
+  });
+  // ===== RECHERCHE ET FILTRES =====
+  searchInput.addEventListener('input', filterRadios);
+  filterSelect.addEventListener('change', filterRadios);
+  // ===== CHARGEMENT DES RADIOS =====
+  fetch('https://raw.githubusercontent.com/mikefri/radios-data/main/radios.json')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Erreur réseau');
+      }
+      return response.json();
+    })
+    .then(data => {
+      loader.remove();
+      
+      data.forEach(radio => {
+        const radioElement = createRadioElement(radio);
+        radiosContainer.appendChild(radioElement);
+        allRadioElements.push(radioElement);
+      });
+    })
+    .catch(error => {
+      console.error('Erreur:', error);
+      loader.remove();
+      
+      const errorDiv = document.createElement('div');
+      errorDiv.className = 'error-container';
+      errorDiv.innerHTML = `
+        <div style="font-size: 3em; margin-bottom: 20px;">😕</div>
+        <p><strong>Impossible de charger les radios</strong></p>
+        <p>Vérifiez votre connexion internet</p>
+        <button onclick="location.reload()">🔄 Réessayer</button>
+      `;
+      radiosContainer.appendChild(errorDiv);
+    });
+  // ===== CHARGEMENT DU MESSAGE =====
+  fetch('https://raw.githubusercontent.com/mikefri/radios-data/main/Message.json')
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('message').textContent = data.message;
+    })
+    .catch(() => {
+      // Silencieusement ignorer si le message ne charge pas
+    });
+  // ===== RACCOURCIS CLAVIER =====
+  document.addEventListener('keydown', (e) => {
+    // Espace pour play/pause (si pas dans un input)
+    if (e.key === ' ' && e.target.tagName !== 'INPUT' && e.target.tagName !== 'BUTTON') {
+      e.preventDefault();
+      if (currentRadioName) {
+        playPauseButton.click();
+      }
+    }
+    
+    // M pour mute
+    if (e.key === 'm' || e.key === 'M') {
+      if (e.target.tagName !== 'INPUT') {
+        volumeIcon.click();
+      }
+    }
+    
+    // Échap pour fermer le toast
+    if (e.key === 'Escape') {
+      hideToast();
+    }
+  });
+});
+// ===== SERVICE WORKER =====
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('service-worker.js')
+    .then(() => console.log('Service Worker enregistré'))
+    .catch(error => console.error('Erreur Service Worker:', error));
+}
+</script>
 </body>
 </html>
