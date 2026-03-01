@@ -1,6 +1,6 @@
 self.addEventListener("install", event => {
   event.waitUntil(
-    caches.open("radiosweb-v1").then(cache => {
+    caches.open("radiosweb-v2").then(cache => {
       return cache.addAll([
         "/RadiosWeb/index.html",
         "/RadiosWeb/manifest.json",
