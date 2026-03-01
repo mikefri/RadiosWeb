@@ -7,6 +7,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <title>RadiosWeb – Radios & MP3</title>
   <meta name="description" content="Accédez à des stations de radio en direct et écoutez vos MP3 sur RadiosWeb.">
+
+  <!-- PWA -->
+  <link rel="manifest" href="https://mikefri.github.io/RadiosWeb/manifest.json">
+  <meta name="theme-color" content="#a78bfa">
+  <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/mikefri/RadiosWeb/main/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="https://raw.githubusercontent.com/mikefri/RadiosWeb/main/icon-512.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="https://raw.githubusercontent.com/mikefri/RadiosWeb/main/icon-192.png">
+  <link rel="shortcut icon" href="https://mikefri.github.io/RadiosWeb/favicon.ico">
+
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -1038,6 +1047,13 @@ loadRadios();
 loadSongs();
 renderSavedPlaylists();
 adjustPadding();
+
+// Service Worker
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('https://mikefri.github.io/RadiosWeb/service-worker.js')
+    .then(() => console.log('SW enregistré'))
+    .catch(e => console.warn('SW non enregistré:', e));
+}
 </script>
 </body>
 </html>
